@@ -1,4 +1,3 @@
-import { AuthModule } from './modules/auth/auth.module';
 import { CustomerModule } from './modules/customer/customer.module';
 import { Module } from '@nestjs/common';
 import { CustomerController } from './modules/customer/controller/CustomerController';
@@ -7,7 +6,6 @@ import { RedisModule } from '@nestjs-modules/ioredis';
 
 @Module({
   imports: [
-    AuthModule,
     CustomerModule,
     RedisModule.forRootAsync({
       useFactory: () => ({

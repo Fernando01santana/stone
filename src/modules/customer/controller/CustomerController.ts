@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { User } from '../../../../src/shared/decorators/auth';
+import { User } from 'src/shared/decorators/auth';
 import CreateCustomerDto from '../dto/CreateCustomer.dto';
 import LoginDto from '../dto/LoginDto';
 import UpdatedCustomerDto from '../dto/UpdateCustomer';
@@ -23,7 +23,7 @@ export class CustomerController {
     return customerUpdated
   }
   @Get('customers/:id')
-  async findById(@User() @Param('id') id:string):Promise<ICustomer>{
+  async findById( @Param('id') id:string):Promise<ICustomer>{
     const findCustomer = await this.customerService.findById(id)
     return findCustomer
   }
