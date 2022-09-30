@@ -1,10 +1,23 @@
+import { AuthModule } from './modules/auth/auth.module';
+import { CustomerModule } from './modules/customer/customer.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { CustomerController } from './modules/customer/controller/CustomerController';
+import { CustomerService } from './modules/customer/services/CustomerService';
+import { RedisModule } from '@nestjs-modules/ioredis';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    AuthModule,
+    CustomerModule,
+    RedisModule.forRootAsync({
+      useFactory: () => ({
+        config: {
+          url: 'redis://localhost:6379',
+        },
+      }),
+    }),
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
