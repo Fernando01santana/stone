@@ -10,15 +10,12 @@ type Payload = {
   export class LocalStrategy extends PassportStrategy(Strategy) {
     constructor(
     ) {
-      super({jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
-        secretOrKey: ''});
+      super({jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken()});
     }
   
     // Bearer token
-    async validate(payload) {
-  console.log('ENTROU NO VALIDATE',payload);
-
-      const token = payload;
-      return token;
+    async validate() {
+  console.log('ENTROU NO VALIDATE');
+      return 'teste';
     }
   }

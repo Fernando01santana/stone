@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { LocalAuthGuard } from 'src/modules/auth/LocalAuth.guard';
+import { User } from '../../../../src/shared/decorators/auth';
 import CreateCustomerDto from '../dto/CreateCustomer.dto';
 import LoginDto from '../dto/LoginDto';
 import UpdatedCustomerDto from '../dto/UpdateCustomer';
@@ -22,9 +22,8 @@ export class CustomerController {
     const customerUpdated = await this.customerService.update(id,updateCustomer)
     return customerUpdated
   }
-  @UseGuards(LocalAuthGuard)
   @Get('customers/:id')
-  async findById(@Param('id') id:string):Promise<ICustomer>{
+  async findById(@User() @Param('id') id:string):Promise<ICustomer>{
     const findCustomer = await this.customerService.findById(id)
     return findCustomer
   }

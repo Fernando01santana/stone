@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import {v4 as uuidv4} from 'uuid';
 
-import ReidsService from 'src/shared/redis/RedisService';
-import GetToken from 'src/shared/security/CallApiCustomer';
+import ReidsService from '../../../../src/shared/redis/RedisService';
+import GetToken from '../../../../src/shared/security/CallApiCustomer';
 import CreateCustomerDto from '../dto/CreateCustomer.dto';
 import UpdatedCustomerDto from '../dto/UpdateCustomer';
 import LoginDto from '../dto/LoginDto';

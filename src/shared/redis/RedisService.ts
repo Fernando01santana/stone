@@ -5,7 +5,7 @@ import UpdatedCustomerDto from 'src/modules/customer/dto/UpdateCustomer';
 import { ICreateCustomer } from 'src/modules/customer/interface/ICreateCustomer';
 import { IUpdatedCustomer } from 'src/modules/customer/interface/IUpdateCustomer';
 
-export default class ReidsService{
+export default class RedisService{
     private redis = new Redis
     async createCustomer(createCustomer:ICreateCustomer):Promise<any>{        
       
