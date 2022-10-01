@@ -41,6 +41,12 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
+# get image redis
+$ docker pull redis
+
+#up container from redis
+docker run --name some-redis -d redis
+
 # production mode
 $ npm run start:prod
 ```

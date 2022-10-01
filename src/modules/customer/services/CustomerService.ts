@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import {v4 as uuidv4} from 'uuid';
 
 import ReidsService from 'src/shared/redis/RedisService';
@@ -36,6 +36,9 @@ export class CustomerService {
 
   async findById(id:string): Promise<any> {
     const customer = await this.redisService.findById(id)
+    if (!customer) {
+      throw new NotFoundException('customer not found')
+    }
     return customer
   }
 

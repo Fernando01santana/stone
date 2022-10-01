@@ -1,6 +1,16 @@
 var path = require('path')
 module.exports = {
     rootDir:path.resolve(__dirname,'./'),
+    verbose:true,
+    preset:'ts-jest',
+    testEnvironment:'node',
+    collectCoverage:true,
+    coverageDirectory:'./_devops/artigacts/reports',
+    coverageReporters:['text','clover','lcov'],
+    collectCoverageFrom:[
+      './src/modules/customer/(controller/services)/*.{ts}',
+      '!**/test/**/*.{ts}',
+    ],
     testMatch: [
       '**/test/**/*.spec.ts'
     ],
@@ -8,7 +18,7 @@ module.exports = {
     compilerOptions: {
       baseUrl: "./",
     },
-    verbose:true,
+    coverage:true,
     coverageThreshold: {
       global: {
         branches: 80,
@@ -17,11 +27,6 @@ module.exports = {
         statements: 80,
       },
     },
-    testEnvironment:'node',
-    preset:'ts-jest',
-    collectCoverageFrom:[
-        './src/modules/customer/(controller/services)/*.{ts}',
-        '!**/test/**/*.{ts}',
-    ]
+
   };
   
