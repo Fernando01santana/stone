@@ -50,6 +50,40 @@ docker run --name some-redis -d redis
 # production mode
 $ npm run start:prod
 ```
+## Requests the app
+```bash
+create: 
+Method: POST /customers
+data:
+type:body
+document:number
+name:string
+
+login: 
+Method: GET /customer
+
+findById: 
+Method: GET /customers
+data: param
+id:string
+
+
+update: 
+Method: PUT
+data:
+type:body
+document:number
+name:string
+
+type:param
+id:string
+
+create: 
+Method: POST
+data: 
+document:number
+name:string
+```
 
 ## Test
 
