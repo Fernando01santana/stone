@@ -24,6 +24,7 @@ export default class RedisService{
         return customerUpdated
     }
     async findById(id:string):Promise<any>{
-        return this.redis.get(`customer:${id}`)
+        const customer = await this.redis.get(`customer:${id}`)        
+        return customer
     }
 }

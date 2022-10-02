@@ -4,7 +4,7 @@ https://docs.nestjs.com/modules
 
 import { Module } from '@nestjs/common';
 import ReidsService from 'src/shared/redis/RedisService';
-import CallApiCustomer from 'src/shared/security/CallApiCustomer';
+import CallApiCustomer from 'src/shared/security/tokenGenerate';
 import { CustomerController } from './controller/CustomerController';
 import { CustomerService } from './services/CustomerService';
 
